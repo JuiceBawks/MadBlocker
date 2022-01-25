@@ -1,0 +1,17 @@
+{
+  "name": "mad-blocker",
+  "version": "1.0.0",
+  "description": "An application that blocks api requests or fills the responses with empty css elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongod": "^2.0.0",
+    "mongoose": "^6.1.8",
+    "mongosh": "^1.1.9"
+  }
+}
