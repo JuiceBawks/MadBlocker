@@ -1,2 +1,0 @@
-var blocked_domains = [
-];

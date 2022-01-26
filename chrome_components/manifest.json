@@ -4,7 +4,7 @@
   "description": "The most 'MAD' ;) ad blocker you have ever seen",
   "permissions": ["webRequest", "webRequestBlocking", "http://*/", "https://*/"],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["ad_domains.js", "background.js"]
   },
   "manifest_version": 2
 }

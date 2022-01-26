@@ -1,20 +1,27 @@
-// const express = require('express');
-// const app = express();
-// const mongoose = require('mongoose');
-// const fetch = require('node-fetch');
-
 import express from 'express';
 const app = express();
 
 
 const PORT = 3000;
 
-import comicController from './comicController.js'
+import comicController from './controllers/comicController.js'
 
 app.use(express.json());
 
-app.get('*', comicController.getComic, (req, res, next) => {
-  res.status(200).setHeader('Content-Type', 'application/json').send(res.locals);
+app.get('/read', comicController.retrieveData, (req, res, next) => {
+  res.status(200).setHeader('Content-Type', 'application/json').send(res.locals.readData);
+});
+
+app.get('*', comicController.retrieveData, comicController.getComic, (req, res, next) => {
+  res.status(200).setHeader('Content-Type', 'text/html').send(res.locals.comic);
+});
+
+app.post('/getData/:name', comicController.getData, (req, res, next) => {
+  res.status(200).setHeader('Content-Type', 'application/json').send(res.locals.data);
+});
+
+app.delete('/drop', comicController.dropData, (req, res, next) => {
+  res.status(200).send("File's deleted boss");
 });
 
 app.use((err, req, res, next) => {

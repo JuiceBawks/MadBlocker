@@ -7,10 +7,7 @@ chrome.webRequest.onBeforeRequest.addListener(
          return {redirectUrl: 'http://localhost:3000/'};
     },
     {
-        urls: [
-            "*://*.youtube.com/",
-            "*://test/*"
-        ],
+        urls: ad_domains,
         types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]
     },
     ["blocking"]
