@@ -1,0 +1,10 @@
+{
+  "name": "Mad-Blocker",
+  "version": "1.0.0",
+  "description": "The most 'MAD' ;) ad blocker you have ever seen",
+  "permissions": ["webRequest", "webRequestBlocking", "http://*/", "https://*/"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}

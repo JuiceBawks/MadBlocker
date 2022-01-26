@@ -1,17 +1,21 @@
 {
   "name": "mad-blocker",
   "version": "1.0.0",
-  "description": "An application that blocks api requests or fills the responses with empty css elements",
+  "description": "An application that blocks api requests or fills the responses with custom css elements",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.2",
     "mongod": "^2.0.0",
     "mongoose": "^6.1.8",
-    "mongosh": "^1.1.9"
+    "mongosh": "^1.1.9",
+    "node-fetch": "^3.2.0",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
   }
 }
