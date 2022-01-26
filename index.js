@@ -1,15 +1,20 @@
-const express = require('express');
+// const express = require('express');
+// const app = express();
+// const mongoose = require('mongoose');
+// const fetch = require('node-fetch');
+
+import express from 'express';
 const app = express();
-const mongoose = require('mongoose');
+
 
 const PORT = 3000;
 
-const comicController = require('./comicController.js');
+import comicController from './comicController.js'
 
 app.use(express.json());
 
 app.get('*', comicController.getComic, (req, res, next) => {
-  res.send('It Worked!');
+  res.status(200).setHeader('Content-Type', 'application/json').send(res.locals);
 });
 
 app.use((err, req, res, next) => {
@@ -25,3 +30,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+
