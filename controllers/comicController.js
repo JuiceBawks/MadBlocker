@@ -29,7 +29,33 @@ comicController.getComic = function(req, res, next) {
       randomNum = Math.floor(Math.random() * (max + 1));
     }
     const randomComic = res.locals.readData[randomNum].image_url;
-    res.locals.comic = `<img src = ${randomComic}></img>`;
+    // res.locals.comic = randomComic;
+    res.locals.comic = `function test() {
+      let comicBox;
+      if (!document.getElementById('comicBoxGrid')) {
+        comicBox = document.createElement('div');
+        comicBox.setAttribute('id', 'comicBoxGrid');
+        comicBox.style.display = 'grid';
+        comicBox.style.gridTemplateColumns = 'repeat(2, 20%)';
+        comicBox.style.width = '100%';
+        comicBox.style.columnGap = '60%';
+        comicBox.style.rowGap = '20%';
+        comicBox.style.position = 'absolute';
+        comicBox.style.top = '200px';
+        comicBox.style.left = '2%';
+        document.body.append(comicBox);
+      } else {
+        comicBox = document.getElementById('comicBoxGrid');
+      }
+      
+      const img = document.createElement('img');
+      img.src = '${randomComic}';
+      img.style.boxShadow = '0px 0px 10px gray';
+      img.style.minHeight = '100%';
+      img.style.maxHeight = '100%';
+      comicBox.append(img);
+    }; 
+    test();`;
 
     next();
   } catch (err) {

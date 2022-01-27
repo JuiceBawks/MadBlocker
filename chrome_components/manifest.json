@@ -2,9 +2,12 @@
   "name": "Mad-Blocker",
   "version": "1.0.0",
   "description": "The most 'MAD' ;) ad blocker you have ever seen",
-  "permissions": ["webRequest", "webRequestBlocking", "http://*/", "https://*/"],
+  "permissions": ["webRequest", "webRequestBlocking", "tabs", "http://*/", "https://*/"],
   "background": {
     "scripts": ["ad_domains.js", "background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
   },
   "manifest_version": 2
 }

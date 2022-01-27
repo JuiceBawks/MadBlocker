@@ -12,3 +12,15 @@ chrome.webRequest.onBeforeRequest.addListener(
     },
     ["blocking"]
 );
+
+chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
+  if (request.message === 'clearDB') {
+    fetch('http://localhost:3000/drop', {method: 'DELETE'})
+    .then(resp => console.log('Contents Deleted!'));
+  };
+
+  if (request.message === 'newData') {
+    fetch(`http://localhost:3000/getData/${request.search}`, {method: 'POST'})
+    .then(resp => console.log('Contents added!'));
+  }
+});
