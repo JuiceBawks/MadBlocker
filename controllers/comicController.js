@@ -23,13 +23,25 @@ comicController.retrieveData = function(req, res, next) {
 
 comicController.getComic = function(req, res, next) {  
   try {
+    if (res.locals.readData.length < 1) {
+      res.locals.comic = `function empty() {
+        let called = false;
+        return function helper() {
+          if (!called) alert('Search for some ads!');
+          called = true;
+        };
+      };
+      const callOnce = empty();
+      callOnce();`
+      return next();
+    }
+
     const max = res.locals.readData.length;
     let randomNum = Math.floor(Math.random() * (max + 1));
     while (randomNum === 10) {
       randomNum = Math.floor(Math.random() * (max + 1));
     }
     const randomComic = res.locals.readData[randomNum].image_url;
-    // res.locals.comic = randomComic;
     res.locals.comic = `function test() {
       let comicBox;
       if (!document.getElementById('comicBoxGrid')) {
@@ -72,6 +84,7 @@ comicController.getData = function(req, res, next) {
     .then(resp => resp.json())
     .then(resp => {
       res.locals.data = [];
+      if (!resp.results) return next();
       resp.results.forEach(comic => {
         if (!comic.name) comic.name = 'n/a';
         res.locals.data.push({comic_title: comic.name, image_url: comic.image.medium_url});

@@ -9,5 +9,10 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "icons" : {
+    "16": "mad64.PNG",
+    "32": "mad64.PNG",
+    "48": "mad64.PNG"
+  },
   "manifest_version": 2
 }

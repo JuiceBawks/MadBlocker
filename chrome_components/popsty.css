@@ -4,6 +4,7 @@ body {
   border-color:gray;
   border-width: 5px;
   box-shadow: 5px 5px 10px gray;
+  border-radius: 5px;
 }
 
 .popupBox {
@@ -17,7 +18,7 @@ body {
 }
 
 #comicSearchBar {
-  margin-left: -70px;
+  margin-left: -68px;
   max-width: 100px;
 }
 
